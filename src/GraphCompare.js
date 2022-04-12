@@ -30,7 +30,7 @@ const weather = ({weatherdata, weatherdataCompare}) => {
     }
     return(
   <div>
-    <Line data={data} />
+    <Line data={data} redraw/>
   </div>
 )}
 
