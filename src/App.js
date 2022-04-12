@@ -112,7 +112,7 @@ function Compare() {
   }
   const statusHandlerKey = (e) => {
     if (e.key === 'Enter') {
-      setCity(e.target.value);
+      setStatus(e.target.value);
     }
   }
 
@@ -120,11 +120,6 @@ function Compare() {
     setStatusCompare(e.target.value);
   }
   
-  const doubleSet = () => {
-    setCityCompare(statusCompare);
-    setCity(status);
-  }
-
   useEffect(() => {
     const fetchData = async () => {
       await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=0da0646afb285a4f7697ca7f0acae0bb`)
@@ -171,8 +166,11 @@ function Compare() {
       <header className="Compare-header">
         <h1>Compare</h1>
         <input type='text' placeholder='Enter City' onKeyPress={statusHandlerKey} onChange={statusHandler}/>
-        <input type='text' placeholder='Enter City' onChange={statusHandlerCompare}/>
-        <input type='submit' value='Submit' onClick={doubleSet}/>
+        <input type='text' placeholder='Enter an other City' onChange={statusHandlerCompare}/>
+        <input type='submit' value='Submit' onClick={() => {
+          setCity(status);
+          setCityCompare(statusCompare);
+        }}/>
         {(typeof data.main != 'undefined') ? (
         <Weather weatherData={data}/>
       ): (
