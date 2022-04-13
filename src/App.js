@@ -12,12 +12,12 @@ function App() {
     <div className="App">
       <h1>WeatherApp With React by Lunasha</h1>
         <div>
-          <Link to="/">Home</Link>
-          <Link to="/compare">Compare</Link>
+          <Link to="WeatherAppWithReact/">Home</Link>
+          <Link to="WeatherAppWithReact/compare">Compare</Link>
         </div>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="compare" element={<Compare />} />
+        <Route path="WeatherAppWithReact/" element={<Home />} />
+        <Route path="WeatherAppWithReact/compare" element={<Compare />} />
       </Routes>
     </div>
   );
@@ -77,7 +77,6 @@ function Home(){
         <Weather weatherData={data}/>
       ): (
         <div>
-          <p>No city ! Put a city !</p>
         </div>
       )}
       {(typeof dataFiveDays.list != 'undefined') ? (
