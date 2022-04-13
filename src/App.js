@@ -67,7 +67,6 @@ function Home(){
       .then(res => res.json())
       .then(result => {
         setUnsplash(result)
-        console.log(result)
       });
     }
 
