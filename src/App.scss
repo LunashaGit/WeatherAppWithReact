@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
+
 h1, h2, p{
   text-align: center;
   font-family: 'Roboto', sans-serif;
@@ -60,4 +61,26 @@ h1, h2, p{
 img{
   display: block;
   margin: 0 auto;
+}
+
+
+@media screen and (min-width: 1024px){
+  .Regroup{
+    /* display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; */
+    &__Today{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    &__Five{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+  }
+  
 }

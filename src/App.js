@@ -175,6 +175,7 @@ function Compare() {
             setCityCompare(statusCompare);
           }}/>
         </div>
+        <div className='Regroup__Today'>
         {(typeof data.main != 'undefined') ? (
         <Weather weatherData={data}/>
       ): (
@@ -187,6 +188,8 @@ function Compare() {
         <div>
         </div>
       )}
+      </div>
+      <div className='Regroup__Five'>
       {(typeof dataFiveDays.list != 'undefined') ? (
         <WeatherFiveDays weatherdata={dataFiveDays}/>
       ): (
@@ -197,6 +200,7 @@ function Compare() {
       ): (
         <div></div>
       )} 
+      </div>
       {(typeof dataFiveDaysCompare.list != 'undefined') ? (
         <GraphCompare weatherdata={dataFiveDaysCompare} weatherdataCompare={dataFiveDays}/>
       ): (
