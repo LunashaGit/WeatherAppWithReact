@@ -75,6 +75,7 @@ function Home(){
         <input type='text' placeholder='Enter City' onKeyPress={statusHandlerKey} onChange={statusHandler}/>
         <input type='submit' value='Submit' onClick={() => setCity(status)}/>
       </div>
+      <div className='Regroup__Today'>
       {(typeof data.main != 'undefined') ? (
         <Weather weatherData={data}/>
       ): (
@@ -82,6 +83,7 @@ function Home(){
           <p>City not find...</p>
         </div>
       )}
+      </div>
       {(typeof dataFiveDays.list != 'undefined') ? (
         <WeatherFiveDays weatherdata={dataFiveDays}/>
       ): (
