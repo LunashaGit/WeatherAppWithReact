@@ -7,7 +7,10 @@ import GraphCompare from './GraphCompare';
 import { useEffect, useState } from 'react';
 import { Routes, Route, Link, Router } from "react-router-dom";
 
+
+
 function App() {
+  
   return (
     <div className="App">
       <h1 className='App__title'>WeatherReact</h1>
@@ -44,19 +47,17 @@ function Home(){
 
   useEffect(() => {
     const fetchData = async () => {
-      await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=0da0646afb285a4f7697ca7f0acae0bb`)
+      await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=${process.env.REACT_APP_WEATHER_API_KEY}`)
       .then(res => res.json())
       .then(result => {
         setData(result)
-        console.log(result);
       });
     }
     const fetchDataFiveDays = async () => {
-      await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&APPID=0da0646afb285a4f7697ca7f0acae0bb`)
+      await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&APPID=${process.env.REACT_APP_WEATHER_API_KEY}`)
       .then(res => res.json())
       .then(result => {
         setDataFiveDays(result)
-        console.log(result);
       });
     }
 
@@ -65,7 +66,6 @@ function Home(){
     fetchDataFiveDays();
 
   }, [city])
-
 
   return (
     <div className="Home">
@@ -126,35 +126,31 @@ function Compare() {
   
   useEffect(() => {
     const fetchData = async () => {
-      await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=0da0646afb285a4f7697ca7f0acae0bb`)
+      await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=${process.env.REACT_APP_WEATHER_API_KEY}`)
       .then(res => res.json())
       .then(result => {
         setData(result)
-        console.log(result);
       });
     }
     const fetchDataFiveDays = async () => {
-      await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&APPID=0da0646afb285a4f7697ca7f0acae0bb`)
+      await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&APPID=${process.env.REACT_APP_WEATHER_API_KEY}`)
       .then(res => res.json())
       .then(result => {
         setDataFiveDays(result)
-        console.log(result);
       });
     }
     const fetchDataCompare = async () => {
-      await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityCompare}&units=metric&APPID=0da0646afb285a4f7697ca7f0acae0bb`)
+      await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityCompare}&units=metric&APPID=${process.env.REACT_APP_WEATHER_API_KEY}`)
       .then(res => res.json())
       .then(result => {
         setDataCompare(result)
-        console.log(result);
       });
     }
     const fetchDataFiveDaysCompare = async () => {
-      await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityCompare}&units=metric&APPID=0da0646afb285a4f7697ca7f0acae0bb`)
+      await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityCompare}&units=metric&APPID=${process.env.REACT_APP_WEATHER_API_KEY}`)
       .then(res => res.json())
       .then(result => {
         setDataFiveDaysCompare(result)
-        console.log(result);
       });
     }
 
