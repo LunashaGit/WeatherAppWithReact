@@ -62,14 +62,13 @@ img{
   display: block;
   margin: 0 auto;
 }
-
+.ImageUnsplash{
+  margin: 0 auto;
+  max-width: 20rem;
+}
 
 @media screen and (min-width: 1024px){
   .Regroup{
-    /* display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column; */
     &__Today{
       display: flex;
       align-items: center;
@@ -82,9 +81,9 @@ img{
       flex-direction: column;
     }
   }
+  .ImageUnsplash{
+    margin: 0 auto;
+    max-width: 50rem;
+  }
   
-}
-.ImageUnsplash{
-  margin: 0 auto;
-  max-width: 20rem;
 }
