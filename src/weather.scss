@@ -1,0 +1,23 @@
+.Today{
+    //Style card for today
+    max-width: 15rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem auto;
+    box-shadow: 4px 4px 1px Grey;
+    background: white;
+    border-radius: 5px;
+    color: rgb(0, 0, 0);
+    transition: 0.5s;
+    box-shadow: 1px 4px 4px 1px rgba(0,0,0,0.4);
+    img{
+        background: rgb(195, 231, 245);
+        border-radius: 50%;
+    }
+    &:hover{
+        transform: scale(1.1);
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
+    }
+}

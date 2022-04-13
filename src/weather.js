@@ -2,8 +2,9 @@ import React from 'react';
 import './weather.scss';
 
 const weather = ({weatherData}) => (
-  <div>
-        <h1 className="header">City Name: {weatherData.name}</h1>
+  <div className='Today'>
+        <h1 className="header">{weatherData.name}, {weatherData.sys.country}</h1>
+        <h2>Today</h2>
         <img src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`}></img>
         <p>Weather Type: {weatherData.weather[0].description}</p>
         <p>Temperature: {Math.floor(Math.ceil(weatherData.main.temp))} °C</p>

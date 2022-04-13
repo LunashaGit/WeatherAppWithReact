@@ -10,14 +10,14 @@ import { Routes, Route, Link, Router } from "react-router-dom";
 function App() {
   return (
     <div className="App">
-      <h1>WeatherApp With React by Lunasha</h1>
-        <div>
-          <Link to="WeatherAppWithReact/">Home</Link>
-          <Link to="WeatherAppWithReact/compare">Compare</Link>
+      <h1 className='App__title'>WeatherReact</h1>
+        <div className='App__link'>
+          <Link to="/WeatherAppWithReact/">Home</Link>
+          <Link to="/WeatherAppWithReact/compare">Compare</Link>
         </div>
       <Routes>
-        <Route path="WeatherAppWithReact/" element={<Home />} />
-        <Route path="WeatherAppWithReact/compare" element={<Compare />} />
+        <Route path="/WeatherAppWithReact/" element={<Home />} />
+        <Route path="/WeatherAppWithReact/compare" element={<Compare />} />
       </Routes>
     </div>
   );
@@ -71,12 +71,15 @@ function Home(){
     <div className="Home">
       <h1>Home</h1>
       <header className="Home-header">
-      <input type='text' placeholder='Enter City' onKeyPress={statusHandlerKey} onChange={statusHandler}/>
-      <input type='submit' value='Submit' onClick={() => setCity(status)}/>
+      <div className='Home__input'>
+        <input type='text' placeholder='Enter City' onKeyPress={statusHandlerKey} onChange={statusHandler}/>
+        <input type='submit' value='Submit' onClick={() => setCity(status)}/>
+      </div>
       {(typeof data.main != 'undefined') ? (
         <Weather weatherData={data}/>
       ): (
         <div>
+          <p>City not find...</p>
         </div>
       )}
       {(typeof dataFiveDays.list != 'undefined') ? (
@@ -164,17 +167,18 @@ function Compare() {
     <div className="Compare">
       <header className="Compare-header">
         <h1>Compare</h1>
-        <input type='text' placeholder='Enter City' onKeyPress={statusHandlerKey} onChange={statusHandler}/>
-        <input type='text' placeholder='Enter an other City' onChange={statusHandlerCompare}/>
-        <input type='submit' value='Submit' onClick={() => {
-          setCity(status);
-          setCityCompare(statusCompare);
-        }}/>
+        <div className='Compare__input'>
+          <input type='text' placeholder='Enter City' onKeyPress={statusHandlerKey} onChange={statusHandler}/>
+          <input type='text' placeholder='Enter an other City' onChange={statusHandlerCompare}/>
+          <input type='submit' value='Submit' onClick={() => {
+            setCity(status);
+            setCityCompare(statusCompare);
+          }}/>
+        </div>
         {(typeof data.main != 'undefined') ? (
         <Weather weatherData={data}/>
       ): (
         <div>
-          <p>No city ! Put a city !</p>
         </div>
       )}
       {(typeof dataCompare.main != 'undefined') ? (

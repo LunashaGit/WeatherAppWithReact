@@ -10,7 +10,7 @@ const weather = ({weatherdata, weatherdataCompare}) => {
         labels: ['In 1 Day', 'In 2 Days', 'In 3 Days', 'In 4 Days', 'In 5 Days'],
         datasets: [
             {
-            label: `${weatherdata.city.name}`,
+            label: `City : ${weatherdata.city.name}`,
             fill: false,
             lineTension: 0.5,
             backgroundColor: 'rgba(75,192,192,1)',
@@ -18,7 +18,7 @@ const weather = ({weatherdata, weatherdataCompare}) => {
             borderWidth: 2,
             data: [weatherdata.list[0].main.temp, weatherdata.list[8].main.temp, weatherdata.list[16].main.temp, weatherdata.list[24].main.temp, weatherdata.list[32].main.temp]
             },{
-            label:`${weatherdataCompare.city.name}`,
+            label:`City : ${weatherdataCompare.city.name}`,
             fill: false,
             lineTension: 0.5,
             backgroundColor: 'rgba(192,75,192,1)',
@@ -29,7 +29,7 @@ const weather = ({weatherdata, weatherdataCompare}) => {
         ]
     }
     return(
-  <div>
+  <div className='GraphCompare'>
     <Line data={data} redraw/>
   </div>
 )}

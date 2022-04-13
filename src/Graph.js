@@ -21,7 +21,7 @@ const weather = ({weatherdata}) => {
         ]
     }
     return(
-  <div>
+  <div className='Graph'>
     <Line data={data} />
   </div>
 )}

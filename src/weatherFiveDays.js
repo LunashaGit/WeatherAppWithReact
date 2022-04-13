@@ -11,7 +11,7 @@ const weather = ({weatherdata}) => {
     let j = 0;
         for(let i = 0; i < weatherdata.list.length; i += 8, j += 8) {
             items.push(
-            <div key={uuidv4()}>
+            <div className='MultipleDays' key={uuidv4()}>
                 <h2>In {(j/8)+1} Days</h2>
                 <img src={`http://openweathermap.org/img/wn/${weatherdata.list[i].weather[0].icon}.png`}></img>
                 <p>Weather Type: {weatherdata.list[i].weather[0].description}</p>
@@ -21,7 +21,7 @@ const weather = ({weatherdata}) => {
             </div>)
         }
     return(
-  <div>
+  <div className='MultipleBlock'>
     {items}
   </div>
 )}

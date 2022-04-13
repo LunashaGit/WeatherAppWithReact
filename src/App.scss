@@ -1,3 +1,63 @@
-h1, p{
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
+h1, h2, p{
   text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
+.App{
+  &__link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    margin: auto;
+    max-width: 15rem;
+    a{
+      color: rgb(0, 0, 0);
+      text-decoration: none;
+      margin: 1rem 2rem;
+      font-family: 'Roboto', sans-serif;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+  }
+}
+.Home__input, .Compare__input{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  input[type="submit"]{
+    background: rgb(187, 236, 255);
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    color: rgb(0, 0, 0);
+    transition: 0.5s;
+    cursor: pointer;
+    &:hover{
+      background: rgb(168, 214, 233);
+      color: rgb(255, 255, 255);
+    }
+  }
+  input[type="text"]{
+    border-radius: 2px;
+    border: 1px solid rgb(141, 141, 141);
+    padding: 0.5rem;
+    &:focus{
+      outline: none;
+    }
+  }
+}
+
+.Compare__input{
+  flex-direction: column;
+}
+img{
+  display: block;
+  margin: 0 auto;
 }
