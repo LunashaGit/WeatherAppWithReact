@@ -4,6 +4,7 @@ import Weather from './weather';
 import WeatherFiveDays from './weatherFiveDays';
 import Graph from './Graph';
 import GraphCompare from './GraphCompare';
+import Unsplash from './Unsplash';
 import { useEffect, useState } from 'react';
 import { Routes, Route, Link, Router } from "react-router-dom";
 
@@ -33,6 +34,7 @@ function Home(){
   const [dataFiveDays, setDataFiveDays] = useState([]);
   const [city, setCity] = useState([]);
   const [status, setStatus] = useState([]);
+  const [unsplash, setUnsplash] = useState([]);
 
 
   const statusHandler = (e) => {
@@ -60,8 +62,16 @@ function Home(){
         setDataFiveDays(result)
       });
     }
+    const unsplash = async () => {
+      await fetch(`https://api.unsplash.com/search/photos?query=${city}&per_page=20&client_id=${process.env.REACT_APP_UNSPLASH_API_KEY}`)
+      .then(res => res.json())
+      .then(result => {
+        setUnsplash(result)
+        console.log(result)
+      });
+    }
 
-
+    unsplash();
     fetchData();
     fetchDataFiveDays();
 
@@ -75,6 +85,11 @@ function Home(){
         <input type='text' placeholder='Enter City' onKeyPress={statusHandlerKey} onChange={statusHandler}/>
         <input type='submit' value='Submit' onClick={() => setCity(status)}/>
       </div>
+      {(typeof dataFiveDays.list != 'undefined') ? (
+        <Unsplash api={unsplash}/>
+      ): (
+        <div></div>
+      )} 
       <div className='Regroup__Today'>
       {(typeof data.main != 'undefined') ? (
         <Weather weatherData={data}/>
@@ -88,12 +103,14 @@ function Home(){
         <WeatherFiveDays weatherdata={dataFiveDays}/>
       ): (
         <div></div>
-      )} 
+      )}
+      
       {(typeof dataFiveDays.list != 'undefined') ? (
         <Graph weatherdata={dataFiveDays}/>
       ): (
         <div></div>
       )} 
+      
       </header>
     </div>
   );
