@@ -53,7 +53,8 @@ function Home(){
       .then(res => res.json())
       .then(result => {
         setData(result)
-      }).catch((error) => {
+      })
+      .catch((error) => {
         console.log(error);
       })
     }
@@ -62,7 +63,8 @@ function Home(){
       .then(res => res.json())
       .then(result => {
         setDataFiveDays(result)
-      }).catch((error) => {
+      })
+      .catch((error) => {
         console.log(error);
       })
     }
@@ -70,16 +72,17 @@ function Home(){
       await fetch(`https://api.unsplash.com/search/photos?query=${city}&per_page=20&client_id=${process.env.REACT_APP_UNSPLASH_API_KEY}`)
       .then(res => res.json())
       .then(result => {
-        setUnsplash(result)
-      }).catch((error) => {
-        console.log(error);
+        setUnsplash(result.results[0].urls.full)
       })
-      
+      .catch((error) => {
+        console.log(error);
+        setUnsplash('')
+      })
     }
-
-    unsplash();
     fetchData();
     fetchDataFiveDays();
+    unsplash();
+
 
   }, [city])
 
@@ -91,17 +94,12 @@ function Home(){
         <input type='text' placeholder='Enter City' onKeyPress={statusHandlerKey} onChange={statusHandler}/>
         <input type='submit' value='Submit' onClick={() => setCity(status)}/>
       </div>
-      {(typeof dataFiveDays.list != 'undefined') ? (
-        <Unsplash api={unsplash}/>
-      ): (
-        <div></div>
-      )} 
+      <img className='ImageUnsplash' src={unsplash}></img>
       <div className='Regroup__Today'>
       {(typeof data.main != 'undefined') ? (
         <Weather weatherData={data}/>
       ): (
         <div>
-          <p>City not find...</p>
         </div>
       )}
       </div>
@@ -116,7 +114,6 @@ function Home(){
       ): (
         <div></div>
       )} 
-      
       </header>
     </div>
   );
@@ -231,7 +228,7 @@ function Compare() {
       )} 
       </div>
       {(typeof dataFiveDaysCompare.list != 'undefined') ? (
-        <GraphCompare weatherdata={dataFiveDaysCompare} weatherdataCompare={dataFiveDays}/>
+        <GraphCompare weatherdata={dataFiveDaysCompare} Compare={dataFiveDays}/>
       ): (
         <div></div>
       )}   

@@ -5,12 +5,12 @@ import { Chart, registerables } from 'chart.js';
 
 Chart.register(...registerables);
 
-const weather = ({weatherdata, weatherdataCompare}) => {
+const weather = ({weatherdata, Compare}) => {
     const data = {
         labels: ['Today', 'In 1 Day', 'In 2 Days', 'In 3 Days', 'In 4 Days'],
         datasets: [
             {
-            label: `City : ${weatherdata.city.name}`,
+            label: `${weatherdata.city.name}`,
             fill: false,
             lineTension: 0.5,
             backgroundColor: 'rgba(75,192,192,1)',
@@ -18,13 +18,13 @@ const weather = ({weatherdata, weatherdataCompare}) => {
             borderWidth: 2,
             data: [weatherdata.list[0].main.temp, weatherdata.list[8].main.temp, weatherdata.list[16].main.temp, weatherdata.list[24].main.temp, weatherdata.list[32].main.temp]
             },{
-            label:`City : ${weatherdataCompare.city.name}`,
+            label:`${Compare.city.name}`,
             fill: false,
             lineTension: 0.5,
             backgroundColor: 'rgba(192,75,192,1)',
             borderColor: 'rgba(0,0,0,1)',
             borderWidth: 2,
-            data: [weatherdataCompare.list[0].main.temp, weatherdataCompare.list[8].main.temp, weatherdataCompare.list[16].main.temp, weatherdataCompare.list[24].main.temp, weatherdataCompare.list[32].main.temp]
+            data: [Compare.list[0].main.temp, Compare.list[8].main.temp, Compare.list[16].main.temp, Compare.list[24].main.temp, Compare.list[32].main.temp]
             }
         ]
     }

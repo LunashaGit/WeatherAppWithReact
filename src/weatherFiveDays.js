@@ -12,7 +12,7 @@ const weather = ({weatherdata}) => {
         for(let i = 8; i < weatherdata.list.length; i += 8, j += 8) {
             items.push(
             <div className='MultipleDays' key={uuidv4()}>
-                <h2>In {(j/8)+1} Days</h2>
+                <h2>In {(j/8)+1} {(j!=0) ? ('Days') : ('Day')}</h2>
                 <img src={`http://openweathermap.org/img/wn/${weatherdata.list[i].weather[0].icon}.png`}></img>
                 <p>Weather Type: {weatherdata.list[i].weather[0].description}</p>
                 <p>Temperature: {Math.floor(Math.ceil(weatherdata.list[i].main.temp))} °C</p>
