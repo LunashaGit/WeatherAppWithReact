@@ -153,28 +153,36 @@ function Compare() {
       .then(res => res.json())
       .then(result => {
         setData(result)
-      });
+      }).catch((error) => {
+        console.log(error);
+      })
     }
     const fetchDataFiveDays = async () => {
       await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&APPID=${process.env.REACT_APP_WEATHER_API_KEY}`)
       .then(res => res.json())
       .then(result => {
         setDataFiveDays(result)
-      });
+      }).catch((error) => {
+        console.log(error);
+      })
     }
     const fetchDataCompare = async () => {
       await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityCompare}&units=metric&APPID=${process.env.REACT_APP_WEATHER_API_KEY}`)
       .then(res => res.json())
       .then(result => {
         setDataCompare(result)
-      });
+      }).catch((error) => {
+        console.log(error);
+      })
     }
     const fetchDataFiveDaysCompare = async () => {
       await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityCompare}&units=metric&APPID=${process.env.REACT_APP_WEATHER_API_KEY}`)
       .then(res => res.json())
       .then(result => {
         setDataFiveDaysCompare(result)
-      });
+      }).catch((error) => {
+        console.log(error);
+      })
     }
 
 
