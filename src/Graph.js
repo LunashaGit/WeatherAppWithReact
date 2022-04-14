@@ -7,7 +7,7 @@ Chart.register(...registerables);
 
 const weather = ({weatherdata}) => {
     const data = {
-        labels: ['In 1 Day', 'In 2 Days', 'In 3 Days', 'In 4 Days', 'In 5 Days'],
+        labels: ['Today', 'In 1 Day', 'In 2 Days', 'In 3 Days', 'In 4 Days'],
         datasets: [
             {
             label: 'Temperature',

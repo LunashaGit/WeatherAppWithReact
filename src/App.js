@@ -53,21 +53,28 @@ function Home(){
       .then(res => res.json())
       .then(result => {
         setData(result)
-      });
+      }).catch((error) => {
+        console.log(error);
+      })
     }
     const fetchDataFiveDays = async () => {
       await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&APPID=${process.env.REACT_APP_WEATHER_API_KEY}`)
       .then(res => res.json())
       .then(result => {
         setDataFiveDays(result)
-      });
+      }).catch((error) => {
+        console.log(error);
+      })
     }
     const unsplash = async () => {
       await fetch(`https://api.unsplash.com/search/photos?query=${city}&per_page=20&client_id=${process.env.REACT_APP_UNSPLASH_API_KEY}`)
       .then(res => res.json())
       .then(result => {
         setUnsplash(result)
-      });
+      }).catch((error) => {
+        console.log(error);
+      })
+      
     }
 
     unsplash();

@@ -9,7 +9,7 @@ Chart.register(...registerables);
 const weather = ({weatherdata}) => {
     const items = [];
     let j = 0;
-        for(let i = 0; i < weatherdata.list.length; i += 8, j += 8) {
+        for(let i = 8; i < weatherdata.list.length; i += 8, j += 8) {
             items.push(
             <div className='MultipleDays' key={uuidv4()}>
                 <h2>In {(j/8)+1} Days</h2>
