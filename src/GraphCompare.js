@@ -10,7 +10,7 @@ const weather = ({weatherdata, Compare}) => {
         labels: ['Today', 'In 1 Day', 'In 2 Days', 'In 3 Days', 'In 4 Days'],
         datasets: [
             {
-            label: `${weatherdata.city.name}`,
+            label: '',
             fill: false,
             lineTension: 0.5,
             backgroundColor: 'rgba(75,192,192,1)',
@@ -18,7 +18,7 @@ const weather = ({weatherdata, Compare}) => {
             borderWidth: 2,
             data: [weatherdata.list[0].main.temp, weatherdata.list[8].main.temp, weatherdata.list[16].main.temp, weatherdata.list[24].main.temp, weatherdata.list[32].main.temp]
             },{
-            label:`${Compare.city.name}`,
+            label:'',
             fill: false,
             lineTension: 0.5,
             backgroundColor: 'rgba(192,75,192,1)',
