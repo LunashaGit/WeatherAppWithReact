@@ -4,7 +4,6 @@ import Weather from './weather';
 import WeatherFiveDays from './weatherFiveDays';
 import Graph from './Graph';
 import GraphCompare from './GraphCompare';
-import Unsplash from './Unsplash';
 import { useEffect, useState } from 'react';
 import { Routes, Route, Link, Router } from "react-router-dom";
 

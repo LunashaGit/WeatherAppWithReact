@@ -67,6 +67,12 @@ img{
   max-width: 20rem;
 }
 
+canvas{
+  display: block;
+  margin: 0 auto;
+  min-width: 15rem;
+}
+
 @media screen and (min-width: 1024px){
   .Regroup{
     &__Today{
@@ -85,5 +91,10 @@ img{
     margin: 0 auto;
     max-width: 50rem;
   }
-  
+  canvas{
+    display: block;
+    margin: 0 auto;
+    min-width: 50rem;
+  }
 }
+
